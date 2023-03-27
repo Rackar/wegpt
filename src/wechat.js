@@ -72,7 +72,7 @@ async function onMessage(msg) {
     // 如果有引用 先去除
     const pattern0 = RegExp(`「(.+?)」\n- - - - - - - - - - - - - - -\n`)
     if (pattern0.test(content)) {
-      content = content.replace(pattern, "")
+      content = content.replace(pattern0, "")
     }
 
     // 群聊需要@bot

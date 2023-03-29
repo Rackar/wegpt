@@ -134,6 +134,17 @@ async function replyMessage(contact, content, inGroup = false) {
       }
 
       return
+    } else if (
+      !exist &&
+      !inGroup &&
+      content.trim().toLocaleLowerCase() !==
+        config.activeKeyWord.toLocaleLowerCase()
+    ) {
+      contact.say(
+        `你好，尚未开启对话模式，如需对话请回复 ${config.activeKeyWord}`
+      )
+
+      return
     }
 
     //正常问答

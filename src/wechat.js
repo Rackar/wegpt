@@ -11,21 +11,25 @@ let startTime
 let userName = ""
 
 function setToActive(obj) {
-  const aim = activeContactList.find((el) => el.id === obj.id)
-  if (aim) {
-    aim.active = true
-  } else {
-    obj.startTime = new Date()
-    obj.limitCount = limitCount
-    obj.active = true
-    activeContactList.push(obj)
+  if (obj && obj.id) {
+    const aim = activeContactList.find((el) => el.id === obj.id)
+    if (aim) {
+      aim.active = true
+    } else {
+      obj.startTime = new Date()
+      obj.limitCount = limitCount
+      obj.active = true
+      activeContactList.push(obj)
+    }
   }
 }
 
 function setUnactive(obj) {
-  const aim = activeContactList.find((el) => el.id === obj.id)
-  if (aim) {
-    aim.active = false
+  if (obj && obj.id) {
+    const aim = activeContactList.find((el) => el && el.id === obj.id)
+    if (aim) {
+      aim.active = false
+    }
   }
 }
 
